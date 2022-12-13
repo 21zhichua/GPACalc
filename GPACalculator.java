@@ -11,8 +11,8 @@ public class GPACalculator {
         this.grades = grades;
     }
     public double breakdownString(double totalGrade) {
-        for (int i = 0; i <= numOfPeriods; i++) {
-            if (Objects.equals(grades.charAt(i), 'A')) {
+        for (int i = 0; i < numOfPeriods; i++) {
+            if (grades.charAt(i) == 'A') {
                 totalGrade += 4.0;
             }
             else if (Objects.equals(grades.charAt(i), 'B')) {
