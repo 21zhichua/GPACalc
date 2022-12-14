@@ -1,4 +1,3 @@
-import java.util.Objects;
 import java.util.Scanner;
 public class GPACalculator {
     private double numOfPeriods;
@@ -15,16 +14,16 @@ public class GPACalculator {
             if (grades.charAt(i) == 'A') {
                 totalGrade += 4.0;
             }
-            else if (Objects.equals(grades.charAt(i), 'B')) {
+            else if (grades.charAt(i) == 'B') {
                 totalGrade += 3.0;
             }
-            else if (Objects.equals(grades.charAt(i), 'C')) {
+            else if (grades.charAt(i) == 'C') {
                 totalGrade += 2.0;
             }
-            else if (Objects.equals(grades.charAt(i), 'D')) {
+            else if (grades.charAt(i) == 'D') {
                 totalGrade += 1.0;
             }
-            else if (Objects.equals(grades.charAt(i), 'F')) {
+            else if (grades.charAt(i) == 'F') {
                 totalGrade += 0.0;
             }
             else {
