@@ -5,10 +5,22 @@ public class GPACalculator {
 
     private double totalGrade;
     private double classGrade;
+
+    /**
+     * Constructor, initializes totalGrade and classGrade
+     * @param numOfPeriods
+     * @param grades
+     */
     public GPACalculator(int numOfPeriods, String grades) {
         this.numOfPeriods = numOfPeriods;
         this.grades = grades;
     }
+
+    /**
+     * converts letter grades into integer counterparts, and returns the total of the integers
+     * @param grades
+     * @return totalGrade
+     */
     public double breakdownString(String grades) {
         double totalGrade = 0;
         for (int i = 0; i < grades.length(); i++) {
@@ -27,12 +39,22 @@ public class GPACalculator {
         }
         return totalGrade;
     }
+
+    /**
+     * Divides total sum of grades with number of periods for the GPA
+     * @param totalGrade
+     * @param numOfPeriods
+     * @return GPA
+     */
     public double calculateGPA(double totalGrade,int numOfPeriods) {
         double GPA = totalGrade / numOfPeriods;
         return GPA;
     }
 
-
+    /**
+     * Main method, gets user input and implements methods
+     * @param args
+     */
     public static void main(String args[]) {
         int newPeriods;
         String newGrades;
