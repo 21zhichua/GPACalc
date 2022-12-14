@@ -3,11 +3,14 @@ public class GPACalculator {
     private double numOfPeriods;
     private String grades;
 
+    double totalGrade;
+
+    double classGrade;
     public GPACalculator(double numOfPeriods, String grades) {
         this.numOfPeriods = numOfPeriods;
         this.grades = grades;
     }
-    public double breakdownString(double totalGrade, double classGrade) {
+    public double breakdownString(double totalGrade, String grades, double classGrade) {
         for (int i = 0; i < numOfPeriods; i++) {
             if (grades.charAt(i) == 'A') {
                 classGrade = 4.0;
@@ -33,8 +36,8 @@ public class GPACalculator {
         }
         return totalGrade;
     }
-    public double calculateGPA(double GPA, double totalGrade) {
-        GPA = totalGrade / numOfPeriods;
+    public double calculateGPA(double totalGrade) {
+        double GPA = 4.0 / 4.0;
         return GPA;
     }
 
@@ -51,7 +54,8 @@ public class GPACalculator {
         System.out.print("Enter your grades (A,B,C,F,A,B): ");
         newGrades = input.next();
         GPACalculator newGPA = new GPACalculator(newPeriods, newGrades);
-        newGPA.breakdownString(newTotal, newClass);
-        System.out.println(newGPA.calculateGPA(newResult, newTotal));
+        newGPA.breakdownString(newTotal, newGrades, newClass);
+        newGPA.calculateGPA(newTotal);
+        System.out.println(newResult);
     }
 }
