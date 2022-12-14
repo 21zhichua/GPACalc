@@ -3,37 +3,37 @@ public class GPACalculator {
     private double numOfPeriods;
     private String grades;
 
-    private double totalGrade;
-
     public GPACalculator(double numOfPeriods, String grades) {
         this.numOfPeriods = numOfPeriods;
         this.grades = grades;
     }
-    public double breakdownString(double totalGrade) {
+    public double breakdownString(double totalGrade, double classGrade) {
         for (int i = 0; i < numOfPeriods; i++) {
             if (grades.charAt(i) == 'A') {
-                totalGrade += 4.0;
+                classGrade = 4.0;
+                totalGrade += classGrade;
             }
             else if (grades.charAt(i) == 'B') {
-                totalGrade += 3.0;
+                classGrade = 3.0;
+                totalGrade += classGrade;
             }
             else if (grades.charAt(i) == 'C') {
-                totalGrade += 2.0;
+                classGrade = 2.0;
+                totalGrade += classGrade;
             }
             else if (grades.charAt(i) == 'D') {
-                totalGrade += 1.0;
+                classGrade = 1.0;
+                totalGrade += classGrade;
             }
             else if (grades.charAt(i) == 'F') {
-                totalGrade += 0.0;
-            }
-            else {
-                totalGrade += 0.0;
+                classGrade = 0.0;
+                totalGrade += classGrade;
             }
 
         }
         return totalGrade;
     }
-    public double calculateGPA(double GPA) {
+    public double calculateGPA(double GPA, double totalGrade) {
         GPA = totalGrade / numOfPeriods;
         return GPA;
     }
@@ -44,13 +44,14 @@ public class GPACalculator {
         String newGrades;
         double newTotal = 0;
         double newResult = 0;
+        double newClass = 0;
         Scanner input = new Scanner(System.in);
         System.out.print("Enter your number of periods: ");
         newPeriods = input.nextDouble();
         System.out.print("Enter your grades (A,B,C,F,A,B): ");
         newGrades = input.next();
         GPACalculator newGPA = new GPACalculator(newPeriods, newGrades);
-        newGPA.breakdownString(newTotal);
-        System.out.println(newGPA.calculateGPA(newResult));
+        newGPA.breakdownString(newTotal, newClass);
+        System.out.println(newGPA.calculateGPA(newResult, newTotal));
     }
 }
